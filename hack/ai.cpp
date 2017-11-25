@@ -12,15 +12,9 @@ matrix::matrix()
 matrix::matrix(int r, int c)
 {
     rows = r; columns = c;
-        printf("zxcv");
-        printf("%d %d %d\n", r, c, r*c);
-   // m=(double*)malloc(sizeof(double)*r*c);
-    int num = r * c;
-    m = new double[num];
-
-printf("asdf");
+    printf("%d\n", r*c);
+    m = new double[r*c];
     memset(m, 0, r*c*sizeof(double));
-    printf("pqoiwe;klsd");
     original = true;
 }
 matrix::matrix(int r, int c, double low, double high)
