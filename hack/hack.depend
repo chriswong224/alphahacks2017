@@ -1,15 +1,43 @@
 # depslib dependency file v1.0
-1511635103 source:e:\programming\20171125 alphahacks\alphahacks2017\hack\main.cpp
+1511642520 source:e:\programming\20171125 alphahacks\alphahacks2017\hack\main.cpp
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
 	"ai.h"
 
-1511637010 source:e:\programming\20171125 alphahacks\alphahacks2017\hack\ai.cpp
+1511642424 source:e:\programming\20171125 alphahacks\alphahacks2017\hack\ai.cpp
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"ai.h"
 
-1511636933 e:\programming\20171125 alphahacks\alphahacks2017\hack\ai.h
+1511639571 e:\programming\20171125 alphahacks\alphahacks2017\hack\ai.h
+	<string>
+
+1511640312 source:e:\programming\20171125 alphahacks\alphahacks2017\hack\weighttext.cpp
+	<iostream>
+	<stdio.h>
+	<string>
+	"ai.h"
+
+1511645168 source:c:\users\chris\desktop\botw\alphahacks2017-develop\alphahacks2017-develop\hack\ai.cpp
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ai.h"
+
+1511643240 c:\users\chris\desktop\botw\alphahacks2017-develop\alphahacks2017-develop\hack\ai.h
+	<string>
+
+1511645318 source:c:\users\chris\desktop\botw\alphahacks2017-develop\alphahacks2017-develop\hack\main.cpp
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"ai.h"
+
+1511642663 source:c:\users\chris\desktop\botw\alphahacks2017-develop\alphahacks2017-develop\hack\weighttext.cpp
+	<iostream>
+	<stdio.h>
+	<string>
+	"ai.h"
 

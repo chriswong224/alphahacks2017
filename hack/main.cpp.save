@@ -15,15 +15,14 @@ int main()
     int n;
     scanf("%d", &n);
     ins[0][0] = article(n);
-    double d;
-    scanf("%lf", ins[1]);
+    scanf("%lf", ins[0]+1);
 
     printf("%f\n\n", ins[0][0]);
 
 //    net.run(&ins);
-    net.out[0][0][0] = -ins[0][0]*0.9723;
+    net.out[0][0] = ins[0][0]*0.9723;
     for (int i = 1; i < 7; ++i)
-        net.out[0][i][0] = net.out[0][i-1][0]*0.98432;
+        net.out[i][0] = net.out[i-1][0]*0.;
     net.out->print();
 
     return 0;
