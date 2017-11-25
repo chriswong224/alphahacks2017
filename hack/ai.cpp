@@ -44,3 +44,42 @@ matrix matrix_mult(matrix &a, matrix &b)
                 m[i][j] += a[i][k] * b[k][j];
     return m;
 }
+
+matrix transpose(matrix &m)
+{
+    matrix r(m.columns, m.rows);
+    for (int i = 0; i < m.rows; ++i)
+        for (int j = 0; j < m.columns; ++j)
+            r[j][i] = m[j][i];
+    return r;
+}
+
+nn::nn()
+{
+    num_inputs = 0;
+    hidden_neurons = 0;
+    num_outputs = 0;
+    in = NULL;
+    out = NULL;
+    hidden = NULL;
+    weights_in = NULL;
+    weights_out = NULL;
+}
+nn::nn(int inputs, int hiddens, int outputs)
+{
+    num_inputs = inputs;
+    hidden_neurons = hiddens;
+    num_outputs = outputs;
+    in = NULL;
+    out = new matrix(outputs, 1);
+    hidden = new matrix(hiddens, 1);
+    weights_in = new matrix(hiddens, inputs);
+    weights_out = new matrix(outputs, hiddens);
+}
+nn::~nn()
+{
+    delete out;
+    delete hidden;
+    delete weights_in;
+    delete weights_out;
+}

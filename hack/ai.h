@@ -12,11 +12,30 @@ public:
     ~matrix();
 
     double* operator[](int i);
+    matrix operator=(matrix &m);
 
     void print();
 };
 
 matrix matrix_mult(matrix &a, matrix &b);
+matrix transpose(matrix &m);
+
+class nn
+{
+public:
+    int num_inputs;
+    int hidden_neurons;
+    int num_outputs;
+    matrix* in;
+    matrix* out;
+    matrix* hidden;
+    matrix* weights_in;
+    matrix* weights_out;
+
+    nn();
+    nn(int inputs, int hiddens, int outputs);
+    ~nn();
+};
 
 #endif
 
