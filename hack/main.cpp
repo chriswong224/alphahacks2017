@@ -1,7 +1,8 @@
 #include <stdio.h>
+#include "ai.h"
 
 int main()
 {
-    printf("hello world");
+
     return 0;
 }
