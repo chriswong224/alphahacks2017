@@ -12,6 +12,8 @@ public:
     ~matrix();
 
     double* operator[](int i);
+
+    void print();
 };
 
 matrix matrix_mult(matrix &a, matrix &b);

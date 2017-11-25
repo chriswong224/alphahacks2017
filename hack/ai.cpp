@@ -25,6 +25,16 @@ double* matrix::operator[](int i)
     return m + i * columns;
 }
 
+void matrix::print()
+{
+    for (int i = 0; i < rows; ++i)
+    {
+        for (int j = 0; j < columns; ++j)
+            printf("%5.2f", (*this)[i][j]);
+        printf("\n");
+    }
+}
+
 matrix matrix_mult(matrix &a, matrix &b)
 {
     matrix m(a.rows, b.columns);
