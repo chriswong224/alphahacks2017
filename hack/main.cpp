@@ -13,13 +13,13 @@ int main()
     matrix ins[4];
     for (int i = 0; i < 4; ++i)
     {
-        ins[i] = matrix(1,2);
+        ins[i] = matrix(2,1);
         ins[i][0][0] = article(i+1);
     }
     matrix des_out[4];
     for (int i = 0; i < 4; ++i)
     {
-        des_out[i] = matrix(1,7);
+        des_out[i] = matrix(7,1);
         FILE * f;
         std::string name = "stock";
         char asdf[100] = "";
@@ -27,17 +27,21 @@ int main()
         name += asdf;
         name += ".txt";
         f=fopen(name.c_str(),"r");
-
-        fscanf(f, "%lf", ins[i][0]+1);
+        fscanf(f, "%lf", ins[i][1]);
         for (int j = 0; j < 7; ++j)
         {
-            fscanf(f, "%lf", des_out[i][0]+j);
+            fscanf(f, "%lf", des_out[i][j]);
         }
-
+        printf("qwer");
         fclose(f);
     }
-    //infrastucture and read data
-
+    net.weights_out->print();
+    for (int i = 0; i < 1000000; ++i)
+        for (int j = 0; j < 4; ++j)
+        {
+            net.run(ins+i);
+            net.backprop(des_out+i);
+        }
 
     //train network
 
