@@ -1,6 +1,8 @@
 #ifndef AI_H
 #define AI_H
 
+#include <string>
+
 extern const double rand_mult;
 
 class matrix
@@ -50,6 +52,15 @@ public:
     void run(matrix* input);
     void backprop(matrix* desired);
 };
+
+struct KeyWords{
+    int weight;
+    std::string word;
+};
+
+int weight(std::string s, KeyWords a[],int numWords);
+
+int article(int articleNum);
 
 #endif
 

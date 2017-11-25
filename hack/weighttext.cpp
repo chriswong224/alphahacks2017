@@ -1,10 +1,8 @@
 #include <iostream>
+#include <stdio.h>
 #include <string>
 
-struct KeyWords{
-    int weight;
-    std::string word;
-};
+#include "ai.h"
 
 int weight(std::string s, KeyWords a[],int numWords){
     for(int i=0;i<numWords;i++){
@@ -67,15 +65,45 @@ int article(int articleNum){
 
     fclose(f);
     return a;
+}/*
+int article(int articleNum){
+    char c;
+    std::string s="";
+    FILE *wf;
+    wf=fopen("weights.txt", "r");
+
+    int i;
+    fscanf(wf, "%d", &i);
+    KeyWords wordList[i];
+    for(int j=0;j<i;j++){
+        // get int
+        fscanf(wf,"%d", &(wordList[j].weight));
+        // get string
+        fscanf(wf,"%s", &(wordList[j].word));
+    }
+    fclose(wf);
+
+    FILE *f;
+    f=fopen("article1.txt","r");
+    int a=0;
+    s="";
+
+    if(f==NULL){
+        printf("Error opening file");
+    }else do{
+        c=fgetc(f);
+        if(isspace(c)){
+            a+=weight(s,wordList,i);
+            s="";
+        }else{
+            s+=c;
+        }
+    }while(c!=EOF);
+
+    fclose(f);
+    return a;
 }
-
-
-int main(){
-
-    std::cout <<article(1);
-
-    return 0;
-}
+*/
 
 
 

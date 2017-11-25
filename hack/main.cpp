@@ -10,6 +10,7 @@ int main()
     nn net(2,7);
     net.randomize();
 
+    printf("%d", article(1));
     //infrastucture and read data
 
 
