@@ -4,6 +4,22 @@
 
 #include "ai.h"
 
+std::string stripinput(std::string text){
+    for (int i = 0, len = text.size(); i < len; i++)
+    {
+        if (ispunct(text[i]))
+        {
+            text.erase(i--, 1);
+            len = text.size();
+        }
+    }
+    std::string b="";
+    for(int i=0; i<text.size();++i){
+        b+=tolower(text[i]);
+    }
+    return b;
+}
+
 int weight(std::string s, KeyWords a[],int numWords){
     for(int i=0;i<numWords;i++){
         if(a[i].word==s){
@@ -61,7 +77,7 @@ int article(int articleNum){
     }else do{
         c=fgetc(f);
         if(isspace(c)){
-            a+=weight(s,wordList,i);
+            a+=weight(stripinput(s),wordList,i);
             s="";
         }else{
             s+=c;
