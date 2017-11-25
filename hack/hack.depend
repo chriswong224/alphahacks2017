@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1511640236 source:e:\programming\20171125 alphahacks\alphahacks2017\hack\main.cpp
+1511640681 source:e:\programming\20171125 alphahacks\alphahacks2017\hack\main.cpp
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -14,7 +14,7 @@
 1511639571 e:\programming\20171125 alphahacks\alphahacks2017\hack\ai.h
 	<string>
 
-1511640261 source:e:\programming\20171125 alphahacks\alphahacks2017\hack\weighttext.cpp
+1511640312 source:e:\programming\20171125 alphahacks\alphahacks2017\hack\weighttext.cpp
 	<iostream>
 	<stdio.h>
 	<string>

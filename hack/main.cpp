@@ -20,7 +20,21 @@ int main()
     for (int i = 0; i < 4; ++i)
     {
         des_out[i] = matrix(1,7);
-        FILE * f =
+        FILE * f;
+        std::string name = "stock";
+        char asdf[100] = "";
+        sprintf(asdf,"%d",i+1);
+        name += asdf;
+        name += ".txt";
+        f=fopen(name.c_str(),"r");
+
+        fscanf(f, "%lf", ins[i][0]+1);
+        for (int j = 0; j < 7; ++j)
+        {
+            fscanf(f, "%lf", des_out[i][0]+j);
+        }
+
+        fclose(f);
     }
     //infrastucture and read data
 
