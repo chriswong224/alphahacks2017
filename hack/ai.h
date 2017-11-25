@@ -1,18 +1,25 @@
 #ifndef AI_H
 #define AI_H
 
+extern const double rand_mult;
+
 class matrix
 {
 public:
     int rows, columns;
     double * m;
+    bool original;
 
     matrix();
     matrix(int r, int c);
+    matrix(int r, int c, double, double);
     ~matrix();
 
     double* operator[](int i);
     matrix operator=(matrix &r);
+
+    void randomize(double, double);
+    void originalize();
 
     void print();
 };
@@ -35,6 +42,12 @@ public:
     nn();
     nn(int inputs, int hiddens, int outputs);
     ~nn();
+
+    void randomize();
+    void load(const char*);
+    void save(const char*);
+
+    void run(matrix* input);
 };
 
 #endif

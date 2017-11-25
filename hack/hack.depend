@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1511631186 source:e:\programming\20171125 alphahacks\alphahacks2017\hack\main.cpp
+1511633157 source:e:\programming\20171125 alphahacks\alphahacks2017\hack\main.cpp
 	<stdio.h>
 	"ai.h"
 
@@ -9,5 +9,5 @@
 	<string.h>
 	"ai.h"
 
-1511631419 e:\programming\20171125 alphahacks\alphahacks2017\hack\ai.h
+1511635044 e:\programming\20171125 alphahacks\alphahacks2017\hack\ai.h
 

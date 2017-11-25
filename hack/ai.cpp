@@ -7,24 +7,27 @@
 matrix::matrix()
 {
     rows = -1; columns = -1; m = NULL;
+    original = true;
 }
 matrix::matrix(int r, int c)
 {
     rows = r; columns = c;
     m = new double[r*c];
     memset(m, 0, r*c*sizeof(double));
+    original = true;
 }
-matrix(int r, int c, double low, double high)
+matrix::matrix(int r, int c, double low, double high)
 {
     rows = r; columns = c;
     m = new double[r*c];
     for (int i=0; i < r; ++i)
         for (int j=0; j < c; ++j)
             (*this)[i][j] = rand()*rand_mult*(high-low)+low;
+    original = true;
 }
 matrix::~matrix()
 {
-    if (m != NULL)
+    if (m != NULL && original)
         delete[] m;
 }
 
@@ -38,7 +41,19 @@ matrix matrix::operator=(matrix &r)
     rows=r.rows;
     columns =r.columns;
     m=r.m;
+    original = false;
     return *this;
+}
+
+void matrix::originalize()
+{
+    if (!original)
+    {
+        double *d = new double[rows*columns];
+        memcpy(d, m, sizeof(double)*rows*columns);
+        m = d;
+        original = true;
+    }
 }
 
 void matrix::randomize(double low, double high)
@@ -109,6 +124,53 @@ nn::~nn()
 
 void nn::randomize()
 {
-
+    weights_in->randomize(-1.0,1.0);
+    weights_out->randomize(-1.0,1.0);
 }
-void nn::load(const char* path);
+void nn::load(const char* path)
+{
+    FILE * f;
+    fopen(path,"r");
+    for (int i = 0; i < hidden_neurons; ++i)
+        for (int j = 0; j < num_inputs; ++j)
+            fscanf(f, "%f", (*weights_in)[i]+j);
+    for (int i = 0; i < num_outputs; ++i)
+        for (int j = 0; j < hidden_neurons; ++j)
+            fscanf(f, "%f", (*weights_out)[i]+j);
+    fclose(f);
+}
+
+void nn::save(const char* path)
+{
+    FILE * f;
+    fopen(path,"w");
+    for (int i = 0; i < hidden_neurons; ++i)
+        for (int j = 0; j < num_inputs; ++j)
+            fprintf(f, "%f ", (*weights_in)[i]+j);
+    for (int i = 0; i < num_outputs; ++i)
+        for (int j = 0; j < hidden_neurons; ++j)
+            fprintf(f, "%f ", (*weights_out)[i]+j);
+    fclose(f);
+}
+
+void nn::run(matrix* input)
+{
+    *in = *input;
+    in->originalize();
+    *hidden = matrix_mult(*weights_in, *in);
+    *out = matrix_mult(*weights_out, *hidden);
+}
+
+#define HASTE 0.01
+void nn::backprop(matrix* desired)
+{
+    for (int i = 0; i < hidden_neurons; ++i)
+        for (int j = 0; j < num_inputs; ++j)
+        {
+
+        }
+    for (int i = 0; i < num_outputs; ++i)
+        for (int j = 0; j < hidden_neurons; ++j)
+        {
+        }
+}
