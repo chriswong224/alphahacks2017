@@ -12,7 +12,7 @@ public:
     ~matrix();
 
     double* operator[](int i);
-    matrix operator=(matrix &m);
+    matrix operator=(matrix &r);
 
     void print();
 };

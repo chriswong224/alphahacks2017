@@ -14,6 +14,14 @@ matrix::matrix(int r, int c)
     m = new double[r*c];
     memset(m, 0, r*c*sizeof(double));
 }
+matrix(int r, int c, double low, double high)
+{
+    rows = r; columns = c;
+    m = new double[r*c];
+    for (int i=0; i < r; ++i)
+        for (int j=0; j < c; ++j)
+            (*this)[i][j] = rand()*rand_mult*(high-low)+low;
+}
 matrix::~matrix()
 {
     if (m != NULL)
@@ -23,6 +31,21 @@ matrix::~matrix()
 double* matrix::operator[](int i)
 {
     return m + i * columns;
+}
+
+matrix matrix::operator=(matrix &r)
+{
+    rows=r.rows;
+    columns =r.columns;
+    m=r.m;
+    return *this;
+}
+
+void matrix::randomize(double low, double high)
+{
+    for (int i=0; i < rows; ++i)
+        for (int j=0; j < columns; ++j)
+            (*this)[i][j] = rand()*rand_mult*(high-low)+low;
 }
 
 void matrix::print()
@@ -83,3 +106,9 @@ nn::~nn()
     delete weights_in;
     delete weights_out;
 }
+
+void nn::randomize()
+{
+
+}
+void nn::load(const char* path);
