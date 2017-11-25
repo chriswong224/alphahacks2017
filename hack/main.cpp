@@ -10,7 +10,18 @@ int main()
     nn net(2,7);
     net.randomize();
 
-    printf("%d", article(1));
+    matrix ins[4];
+    for (int i = 0; i < 4; ++i)
+    {
+        ins[i] = matrix(1,2);
+        ins[i][0][0] = article(i+1);
+    }
+    matrix des_out[4];
+    for (int i = 0; i < 4; ++i)
+    {
+        des_out[i] = matrix(1,7);
+        FILE * f =
+    }
     //infrastucture and read data
 
 

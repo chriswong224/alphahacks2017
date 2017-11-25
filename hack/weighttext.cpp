@@ -47,7 +47,12 @@ int article(int articleNum){
     fclose(wf);
 
     FILE *f;
-    f=fopen("article1.txt","r");
+    std::string name = "article";
+    char asdf[100] = "";
+    sprintf(asdf,"%d",articleNum);
+    name += asdf;
+    name += ".txt";
+    f=fopen(name.c_str(),"r");
     int a=0;
     s="";
 
